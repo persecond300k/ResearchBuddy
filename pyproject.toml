@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "300kpersecondbot"
+version = "0.1.0"
+description = ""
+authors = ["torchme <redpowerfuls@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10, <3.13"
+aiogram = "^3.4.1"
+loguru = "^0.7.2"
+python-dotenv = "^1.0.1"
+pyyaml = "^6.0.1"
+requests = "^2.31.0"
+tqdm = "^4.66.2"
+psycopg2-binary = "^2.9.9"
+dagster = "^1.7.3"
+dagster-webserver = "^1.7.3"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
+ruff = "^0.3.5"
+pytest = "^8.1.1"
+ipykernel = "^6.29.4"
+autopep8 = "^2.1.0"
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+include = ["*.py"]
+line-length = 88
+target-version = "py310"
+fix = true
+preview = true
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+exclude = ["*.ipynb"]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+docstring-code-line-length = "dynamic"
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
